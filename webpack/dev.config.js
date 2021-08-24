@@ -25,13 +25,13 @@ module.exports = merge(baseConfig, {
       template: 'index.html',
       inject: true
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: 'static',
-        ignore: ['.*']
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: 'static',
+    //     ignore: ['.*']
+    //   }
+    // ]),
     new webpack.DefinePlugin({
       'process.env.FIREBASE_API_KEY':JSON.stringify(process.env.FIREBASE_API_KEY),
       'process.env.FIREBASE_AUTH_DOMAIN':JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),

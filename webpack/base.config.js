@@ -10,9 +10,12 @@ module.exports = {
     '@babel/polyfill', resolve('src/index.js')
   ],
   output: {
-    path: resolve('dist'),
+    path: resolve('build'),
     filename: 'js/[name].bundle.js',
     publicPath: '/'
+  },
+  devServer: {
+    contentBase: "./build",
   },
   module: {
     rules: [{

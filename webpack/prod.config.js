@@ -48,7 +48,7 @@ module.exports = merge(baseConfig, {
         removeAttributeQuotes: true
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependencies'
+      chunksSortMode: 'auto'
     }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, '../dist/404.html'),
@@ -60,15 +60,15 @@ module.exports = merge(baseConfig, {
         removeAttributeQuotes: true
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependencies'
+      chunksSortMode: 'auto'
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: 'static',
-        ignore: ['.*']
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: 'static',
+    //     ignore: ['.*']
+    //   }
+    // ]),
     new webpack.DefinePlugin({
       'process.env.FIREBASE_API_KEY':JSON.stringify(process.env.FIREBASE_API_KEY),
       'process.env.FIREBASE_AUTH_DOMAIN':JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
@@ -82,21 +82,21 @@ module.exports = merge(baseConfig, {
       cacheId: 'CodingCafe',
       swDest: 'sw.js',
       navigateFallback: '/index.html',
-      navigateFallbackWhitelist: [ /^\/[^\_]+\/?/ ],
+      navigateFallbackAllowlist: [ /^\/[^\_]+\/?/ ],
       clientsClaim: true,
       skipWaiting: true,
-      runtimeCaching: [{
-          urlPattern: new RegExp('^https://fonts.(?:googleapis|gstatic).com/(.*)'),
-          handler: 'cacheFirst'
-      },
-      {
-        urlPattern: new RegExp(process.env.FIREBASE_AUTH_DOMAIN),
-        handler: 'networkFirst'
-      },
-      {
-          urlPattern: /.*/,
-          handler: 'networkFirst'
-      }]
+      // runtimeCaching: [{
+      //     urlPattern: new RegExp('^https://fonts.(?:googleapis|gstatic).com/(.*)'),
+      //     handler: 'cacheFirst'
+      // },
+      // {
+      //   urlPattern: new RegExp(process.env.FIREBASE_DB_URL),
+      //   handler: 'networkFirst'
+      // },
+      // {
+      //     urlPattern: /.*/,
+      //     handler: 'networkFirst'
+      // }]
     })
   ]
 });

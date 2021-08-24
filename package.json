@@ -1,6 +1,5 @@
 {
   "name": "ecomemrce",
-  "homepage": "https://myusername.github.io/my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^8.2.4",
     "formik": "^1.5.8",
+    "gh-pages": "^3.2.3",
     "history": "^4.10.1",
     "live-server": "^1.2.1",
     "moment": "^2.27.0",
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "serve": "live-server dist/",
-    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
+    "build": "webpack --config webpack/prod.config.js",
     "dev-server": "webpack-dev-server --open --config webpack/dev.config.js",
     "test": "react-scripts test"
   },
@@ -70,7 +70,7 @@
     "file-loader": "^6.0.0",
     "group-css-media-queries-loader": "^3.0.2",
     "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-plugin": "^4.5.2",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
